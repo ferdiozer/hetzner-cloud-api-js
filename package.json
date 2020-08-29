@@ -1,0 +1,24 @@
+{
+  "name": "hetzner-cloud-api",
+  "version": "1.0.0",
+  "description": "Hetzner cloud api with node js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "cloud",
+    "server",
+    "hetzner",
+    "api"
+  ],
+  "author": "ferdiozer.com",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "lodash": "^4.17.20",
+    "nodemon": "^2.0.4"
+  }
+}

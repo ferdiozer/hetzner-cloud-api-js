@@ -34,4 +34,7 @@ client.getServer().then(response=>{
 
 
 # For your questions and support
+Documentation
+https://docs.hetzner.cloud/
+E-mail
 info@ferdiozer.com

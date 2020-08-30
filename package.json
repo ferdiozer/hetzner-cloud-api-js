@@ -14,6 +14,11 @@
     "hetzner",
     "api"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ferdiozer/hetzner-cloud-api-js.git"
+  },
+  "homepage": "https://github.com/ferdiozer/hetzner-cloud-api-js#readme",
   "author": "ferdiozer.com",
   "license": "ISC",
   "dependencies": {

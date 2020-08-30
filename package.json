@@ -1,6 +1,6 @@
 {
   "name": "hetzner-cloud-api",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "Hetzner cloud api with node js",
   "main": "index.js",
   "scripts": {

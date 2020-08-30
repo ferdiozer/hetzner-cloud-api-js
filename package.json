@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/ferdiozer/hetzner-cloud-api-js#readme",
   "author": "ferdiozer.com",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.20.0",
     "lodash": "^4.17.20",

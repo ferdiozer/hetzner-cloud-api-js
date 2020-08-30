@@ -8,7 +8,6 @@
 */
 
 const axios = require("axios")
-const { reject } = require("lodash")
 
 class Cloud {
     /**

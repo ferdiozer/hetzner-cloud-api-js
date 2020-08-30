@@ -23,7 +23,7 @@ Then...
 import Cloud from 'hetzner-cloud-api';
 const client = new Cloud("your API KEY");
 
-//example
+//example <promise>
 client.getServer().then(response=>{
     console.log(response)
 }).catch(err=>{
@@ -35,6 +35,7 @@ client.getServer().then(response=>{
 
 # For your questions and support
 Documentation
-https://docs.hetzner.cloud/
+https://docs.hetzner.cloud
+<br/>
 E-mail
 info@ferdiozer.com

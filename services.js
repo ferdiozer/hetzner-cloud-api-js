@@ -4,8 +4,6 @@ const axios = require("axios")
 const {APIKEY} = require("./config")
 
 
-const serverListApiUrl = "https://api.hetzner.cloud/v1/servers"
-
 
 // List all Actions
 const getActions =()=>{
@@ -22,10 +20,11 @@ const getActions =()=>{
 /////-------SERVER----///////////////////////////////////////////////////////////////////////////
 // Get all servers
 const getServers =()=>{
+    const url ="https://api.hetzner.cloud/v1/servers"
     const header = {
         Authorization : `Bearer ${APIKEY}`
     }
-    axios.get(serverListApiUrl,{headers:header}).then((res)=>{
+    axios.get(url,{headers:header}).then((res)=>{
         console.log(res.data)
     })
 }
@@ -37,12 +36,13 @@ const createServer =(obj=null)=>{
  * name, server_type, image
  * 
  */
+    const url = "https://api.hetzner.cloud/v1/servers"
     const header = {
         "Authorization" : `Bearer ${APIKEY}`,
         "Content-Type" : "application/json"
     }
     const body = obj ? obj : examplebody
-    axios.post(serverListApiUrl,body,{headers:header}).then((res)=>{
+    axios.post(url,body,{headers:header}).then((res)=>{
         console.log(res.data)
     }).catch(err=>{
         console.log(err.message)

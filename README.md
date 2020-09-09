@@ -24,8 +24,8 @@ import Cloud from 'hetzner-cloud-api';
 const client = new Cloud("your API KEY");
 
 //example <promise>
-client.getServer().then(response=>{
-    console.log(response)
+client.getServers().then(servers=>{
+    console.log(servers)
 }).catch(err=>{
     console.log(err)
 })

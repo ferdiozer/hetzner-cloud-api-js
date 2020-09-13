@@ -8,6 +8,8 @@
 */
 
 const axios = require("axios")
+const Image = require("./src/utils/services/Image")
+
 
 //import axios from "axios";
 
@@ -123,7 +125,48 @@ class Cloud {
                 return reject(err.response)
             })
         })
+    }
 
+    /////-------IMAGES----///////////////////////////////////////////////////////////////////////////
+    // Get all Images
+    images() {
+        return new Promise((resolve, reject) => {
+            Image.images(this.token).then((res) => {
+                return resolve(res.data)
+            }).catch(err => {
+                return reject(err.response)
+            })
+        })
+    }
+    // Get an Image
+    image(id) {
+        return new Promise((resolve, reject) => {
+            Image.image(this.token, id).then((res) => {
+                return resolve(res.data)
+            }).catch(err => {
+                return reject(err.response)
+            })
+        })
+    }
+    // Update an Image
+    updateImage(id, updateData) {
+        return new Promise((resolve, reject) => {
+            Image.updateImage(this.token, id, updateData).then((res) => {
+                return resolve(res.data)
+            }).catch(err => {
+                return reject(err.response)
+            })
+        })
+    }
+    // Delete an Image
+    deleteImage(id) {
+        return new Promise((resolve, reject) => {
+            Image.deleteImage(this.token, id).then((res) => {
+                return resolve(res.data)
+            }).catch(err => {
+                return reject(err.response)
+            })
+        })
     }
 
 

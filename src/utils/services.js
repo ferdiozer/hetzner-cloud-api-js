@@ -1,7 +1,7 @@
 
 const axios = require("axios")
 
-const {APIKEY} = require("./config")
+const {APIKEY} = require("../../config")
 
 
 
@@ -126,12 +126,36 @@ const getImage =(id)=>{
         console.log(res.data)
     })
 }
+// Update an Image
+const updateImage =(id,updateData)=>{
+    const url = `https://api.hetzner.cloud/v1/images/${id}`
+    const header = {
+        Authorization : `Bearer ${APIKEY}`
+    }
+    axios.put(url,updateData,{headers:header}).then((res)=>{
+        console.log(res.data)
+    })
+}
+//Delete an Image
+const deleteImage =(id)=>{
+    const url = `https://api.hetzner.cloud/v1/images/${id}`
+    const header = {
+        Authorization : `Bearer ${APIKEY}`
+    }
+    axios.delete(url,{headers:header}).then((res)=>{
+        console.log(res.data)
+    })
+}
+
+///////////----------Image Actions----------------------------------////////////////////////
 
 module.exports = {
     actions:getActions,
     servers : getServers,
     images : getImages,
     image:getImage,
+    updateImage,
+    deleteImage,
     createServer,
     getServer,
     updateServer,

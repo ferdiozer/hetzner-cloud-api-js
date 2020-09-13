@@ -20,7 +20,7 @@ https://console.hetzner.cloud/projects/"your project id"/security/tokens
 Then...
 
 ```
-import Cloud from 'hetzner-cloud-api';
+const Cloud = require('hetzner-cloud-api');
 const client = new Cloud("your API KEY");
 
 //example <promise>
@@ -31,9 +31,15 @@ client.getServers().then(servers=>{
 })
 ```
 
+# Functions
+## Server
+getServers, createServer, getServer, updateServer, deleteServer, getServerMetrics
+## Image
+images, image, updateImage, deleteImage
 
 
-# For your questions and support
+
+# Your questions and support
 Documentation
 https://docs.hetzner.cloud
 <br/>

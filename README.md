@@ -1,7 +1,7 @@
 # What is this?
 
 API to manage your server with node js
-
+### Remotely manage your server with node js
 
 ## How to use
 

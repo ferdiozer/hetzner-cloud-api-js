@@ -20,7 +20,10 @@ class Cloud {
      */
     constructor(token) {
         this.token = token
-
+        this.headerConfig = {
+            "Authorization": `Bearer ${token}`,
+            "Content-Type": "application/json"
+        }
     }
 
 
@@ -29,11 +32,8 @@ class Cloud {
     // Get all servers
     getServers() {
         const url = "https://api.hetzner.cloud/v1/servers"
-        const header = {
-            Authorization: `Bearer ${this.token}`
-        }
         return new Promise((resolve, reject) => {
-            axios.get(url, { headers: header }).then((res) => {
+            axios.get(url, { headers: this.headerConfig }).then((res) => {
                 return resolve(res.data)
             }).catch(err => {
                 return reject(err.response)
@@ -50,82 +50,104 @@ class Cloud {
          * 
          */
         const url = "https://api.hetzner.cloud/v1/servers"
-        const header = {
-            "Authorization": `Bearer ${this.token}`,
-            "Content-Type": "application/json"
-        }
         return new Promise((resolve, reject) => {
-            axios.post(url, body, { headers: header }).then((res) => {
+            axios.post(url, body, { headers: this.headerConfig }).then((res) => {
                 return resolve(res.data)
             }).catch(err => {
                 return reject(err.response)
             })
         })
-
     }
     // Get a Server
     getServer(id) {
         const url = `https://api.hetzner.cloud/v1/servers/${id}`
-        const header = {
-            "Authorization": `Bearer ${this.token}`,
-            "Content-Type": "application/json"
-        }
         return new Promise((resolve, reject) => {
-            axios.get(url, { headers: header }).then((res) => {
+            axios.get(url, { headers: this.headerConfig }).then((res) => {
                 return resolve(res.data)
             }).catch(err => {
                 return reject(err.response)
             })
         })
-
     }
     // Update a Server
     updateServer(id, obj) {
         const url = `https://api.hetzner.cloud/v1/servers/${id}`
-        const header = {
-            "Authorization": `Bearer ${this.token}`,
-            "Content-Type": "application/json"
-        }
         return new Promise((resolve, reject) => {
-            axios.put(url, obj, { headers: header }).then((res) => {
+            axios.put(url, obj, { headers: this.headerConfig }).then((res) => {
                 return resolve(res.data)
             }).catch(err => {
                 return reject(err.response)
             })
         })
-
     }
     // Delete a Server
     deleteServer(id) {
         const url = `https://api.hetzner.cloud/v1/servers/${id}`
-        const header = {
-            "Authorization": `Bearer ${this.token}`,
-            "Content-Type": "application/json"
-        }
         return new Promise((resolve, reject) => {
-            axios.delete(url, { headers: header }).then((res) => {
+            axios.delete(url, { headers: this.headerConfig }).then((res) => {
                 return resolve(res.data)
             }).catch(err => {
                 return reject(err.response)
             })
         })
-
     }
     // Get Metrics for a Server ???
     getServerMetrics(id, query) {
         const url = `https://api.hetzner.cloud/v1/servers/${id}/metrics${query}`
-        const header = {
-            "Authorization": `Bearer ${this.token}`,
-            "Content-Type": "application/json"
-        }
         return new Promise((resolve, reject) => {
-            axios.get(url, { headers: header }).then((res) => {
+            axios.get(url, { headers: this.headerConfig }).then((res) => {
                 return resolve(res.data)
             }).catch(err => {
                 return reject(err.response)
             })
         })
     }
+
+    powerOffServer(id) {
+        const url = `https://api.hetzner.cloud/v1/servers/${id}/actions/poweroff`
+        return new Promise((resolve, reject) => {
+            axios.post(url, {}, { headers: this.headerConfig }).then((res) => {
+                return resolve(res.data)
+            }).catch(err => {
+                return reject(err.response)
+            })
+        })
+    }
+
+    powerOnServer(id) {
+        const url = `https://api.hetzner.cloud/v1/servers/${id}/actions/poweron`
+        return new Promise((resolve, reject) => {
+            axios.post(url, {}, { headers: this.headerConfig }).then((res) => {
+                return resolve(res.data)
+            }).catch(err => {
+                return reject(err.response)
+            })
+        })
+    }
+
+    rebootServer(id) {
+        const url = `https://api.hetzner.cloud/v1/servers/${id}/actions/reboot`
+        return new Promise((resolve, reject) => {
+            axios.post(url, {}, { headers: this.headerConfig }).then((res) => {
+                return resolve(res.data)
+            }).catch(err => {
+                return reject(err.response)
+            })
+        })
+    }
+
+    shutdownServer(id) {
+        const url = `https://api.hetzner.cloud/v1/servers/${id}/actions/shutdown`
+        return new Promise((resolve, reject) => {
+            axios.post(url, {}, { headers: this.headerConfig }).then((res) => {
+                return resolve(res.data)
+            }).catch(err => {
+                return reject(err.response)
+            })
+        })
+    }
+
+
 
     /////-------IMAGES----///////////////////////////////////////////////////////////////////////////
     // Get all Images
